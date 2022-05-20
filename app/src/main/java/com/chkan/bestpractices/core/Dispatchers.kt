@@ -23,6 +23,5 @@ interface Dispatchers {
 
         override suspend fun changeToUI(block: suspend CoroutineScope.() -> Unit)
         = withContext(kotlinx.coroutines.Dispatchers.Main, block)
-
     }
 }

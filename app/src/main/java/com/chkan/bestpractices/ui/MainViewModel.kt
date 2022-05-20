@@ -1,6 +1,5 @@
 package com.chkan.bestpractices.ui
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,21 +21,19 @@ class MainViewModel @Inject constructor(
         getPassengers()
     }
 
-    private val _listPassengersLiveData = MutableLiveData<MyResult<ResponsePassengers>>()
-    val listPassengersLiveData: LiveData<MyResult<ResponsePassengers>>
-        get() = _listPassengersLiveData
+    private val listPassengersLiveData = MutableLiveData<MyResult<ResponsePassengers>>()
+    fun listPassengers() = listPassengersLiveData
 
-    private val _isErrorLiveData: MutableLiveData<Boolean> = MutableLiveData()
-    val isErrorLiveData: LiveData<Boolean>
-        get() = _isErrorLiveData
+    private val errorLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    fun error() = errorLiveData
 
     private fun getPassengers() {
         dispatchers.launchBackground(viewModelScope){
             val list = getDataUseCase.getPassengers(0,10)
             if(list.resultType == ResultType.SUCCESS){
-                _listPassengersLiveData.postValue(list)
+                listPassengersLiveData.postValue(list)
             } else{
-                _isErrorLiveData.postValue(true)
+                errorLiveData.postValue(true)
             }
         }
     }
