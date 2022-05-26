@@ -24,8 +24,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "API_BASE_URL", "\"https://api.instantwebtools.net/\""
+            buildConfigField "boolean", "isDebug", "false"
         }
         debug {
+            buildConfigField "boolean", "isDebug", "true"
             buildConfigField "String", "API_BASE_URL", "\"https://api.instantwebtools.net/\""
         }
     }
@@ -61,6 +63,12 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+
+    // pretty logs
+    implementation 'com.github.ihsanbal:LoggingInterceptor:3.1.0'
+
+    // http viewer
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
 
     // Retrofit with kotlinx-serialization
     implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0")
