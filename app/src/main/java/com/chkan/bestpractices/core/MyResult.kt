@@ -1,4 +1,4 @@
-package com.chkan.bestpractices.data
+package com.chkan.bestpractices.core
 
 import java.lang.Exception
 

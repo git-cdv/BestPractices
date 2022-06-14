@@ -3,19 +3,24 @@ package com.chkan.bestpractices.di
 import android.content.Context
 import android.util.Log
 import com.chkan.bestpractices.BuildConfig
-import com.chkan.bestpractices.data.sources.network.MainService
+import com.chkan.bestpractices.core.Dispatchers
+import com.chkan.bestpractices.data.repo.PassengersRepoImpl
+import com.chkan.bestpractices.data.sources.network.NetworkPassengersSource
 import com.chkan.bestpractices.di.quialifiers.InterceptorLogTag
+import com.chkan.bestpractices.domain.repo.PassengersRepo
 import com.chkan.bestpractices.utils.NETWORK
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.ihsanbal.logging.Level
 import com.ihsanbal.logging.LoggingInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.json.Json
+import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -45,7 +50,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideMainService(retrofit : Retrofit) : MainService = retrofit.create(MainService::class.java)
+    internal fun provideMainService(retrofit : Retrofit) : NetworkPassengersSource = retrofit.create(NetworkPassengersSource::class.java)
 
     @Singleton
     @Provides
@@ -67,14 +72,29 @@ object NetworkModule {
     }
 
     @Provides
+    fun provideRequestInterceptor() = Interceptor { chain ->
+        val builder = chain.request().newBuilder()
+        builder.header("app-id", "62a891b745658d75b2f2f139")
+        return@Interceptor chain.proceed(builder.build())
+    }
+
+    @Provides
     internal fun okHttpClient(
         logging: LoggingInterceptor,
-        chuck: ChuckerInterceptor
+        chuck: ChuckerInterceptor,
+        requestInterceptor: Interceptor
     ): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .addInterceptor(logging)
             .addInterceptor(chuck)
+            .addInterceptor(requestInterceptor)
         return builder.build()
     }
+}
 
+@Module
+@InstallIn(SingletonComponent::class)
+interface RepositoryModules {
+    @Binds
+    fun providePassengersRepoImpl(repository: PassengersRepoImpl): PassengersRepo
 }

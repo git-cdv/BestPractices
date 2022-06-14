@@ -23,12 +23,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "API_BASE_URL", "\"https://api.instantwebtools.net/\""
+            buildConfigField "String", "API_BASE_URL", "\"https://dummyapi.io/\""
             buildConfigField "boolean", "isDebug", "false"
         }
         debug {
             buildConfigField "boolean", "isDebug", "true"
-            buildConfigField "String", "API_BASE_URL", "\"https://api.instantwebtools.net/\""
+            buildConfigField "String", "API_BASE_URL", "\"https://dummyapi.io/\""
         }
     }
     compileOptions {
@@ -37,6 +37,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled = true
     }
 }
 
@@ -80,5 +83,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+
+    //image
+    implementation("io.coil-kt:coil:2.1.0")
 
 }
