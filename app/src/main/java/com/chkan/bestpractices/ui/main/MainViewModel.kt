@@ -24,24 +24,21 @@ class MainViewModel @Inject constructor(
     private val errorLiveData: MutableLiveData<Boolean> = MutableLiveData()
     fun error() = errorLiveData
 
-    var currentPage = 0
+    private var currentPage = 0
+    private var total = 1
 
-    fun getPassengers(size:Int) {
-        dispatchers.launchBackground(viewModelScope){
-            val list = getDataUseCase.getPassengers(currentPage,size)
-            if(list.resultType == ResultType.SUCCESS){
-                val total = list.data?.get(0)?.total
-                val currentList = listPassengersLiveData.value?.toMutableList() ?: mutableListOf()
-                if (total != null) {
-                    if(total > currentList.size){
-                        val result = list.data.mapToPassengersUI()
-                        currentList.addAll(result)
-                        listPassengersLiveData.postValue(currentList)
-                        Log.d("CHKAN", "currentList size - ${currentList.size}")
-                        currentPage++
-                    }
+    fun getPassengers(size: Int) {
+        dispatchers.launchBackground(viewModelScope) {
+            val currentList = listPassengersLiveData.value?.toMutableList() ?: mutableListOf()
+            if (total > currentList.size) {
+                val list = getDataUseCase.getPassengers(currentPage, size)
+                if (list.resultType == ResultType.SUCCESS) {
+                    currentList.addAll(list.data.mapToPassengersUI())
+                    if (total == 1) total = list.data?.get(0)?.total ?: 1
+                    listPassengersLiveData.postValue(currentList)
+                    currentPage++
                 }
-            } else{
+            } else {
                 errorLiveData.postValue(true)
             }
         }

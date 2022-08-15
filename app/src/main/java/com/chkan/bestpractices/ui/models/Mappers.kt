@@ -8,13 +8,13 @@ import com.chkan.bestpractices.domain.models.PassengersDomainModel
 /**
  * Convert Network results to UI objects
  */
-fun List<PassengersDomainModel>.mapToPassengersUI(): List<PassengersUIModel> {
-    return this.map {
+fun List<PassengersDomainModel>?.mapToPassengersUI(): List<PassengersUIModel> {
+    return this?.map {
         PassengersUIModel(
             id = it.id,
             firstName = it.firstName,
             lastName = it.lastName,
             picture = it.picture
         )
-    }
+    } ?: listOf()
 }
