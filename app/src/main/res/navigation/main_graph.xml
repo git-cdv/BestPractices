@@ -3,11 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.chkan.bestpractices.ui.main.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        android:id="@+id/menuFragment"
+        android:name="com.chkan.bestpractices.ui.main.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_mainFragment_to_pagingFragment"
+            app:destination="@id/pagingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pagingFragment"
+        android:name="com.chkan.bestpractices.ui.simple_paging.SimplePagingFragment"
+        android:label="fragment_paging"
+        tools:layout="@layout/fragment_simple_paging" />
 </navigation>

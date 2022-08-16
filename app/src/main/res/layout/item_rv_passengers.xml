@@ -10,7 +10,7 @@
 
         <variable
             name="clickListener"
-            type="com.chkan.bestpractices.ui.main.PassListListener" />
+            type="com.chkan.bestpractices.ui.simple_paging.PassListListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

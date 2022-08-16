@@ -1,23 +1,25 @@
-package com.chkan.bestpractices.ui.main
+package com.chkan.bestpractices.ui.simple_paging
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chkan.bestpractices.core.BaseFragment
 import com.chkan.bestpractices.core.maxElementForXLarge
 import com.chkan.bestpractices.core.observe
-import com.chkan.bestpractices.databinding.FragmentMainBinding
+import com.chkan.bestpractices.databinding.FragmentSimplePagingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
+class SimplePagingFragment : BaseFragment<FragmentSimplePagingBinding>(FragmentSimplePagingBinding::inflate) {
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: SimplePagingViewModel by activityViewModels()
 
     private var isLoading = true
+    private var sizeList = 0
 
     private val adapter = ListPassengersAdapter (PassListListener { item ->
         Log.d("CHKAN", "item : $item")
@@ -49,20 +51,31 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
                 ) < lastVisiblePosition && lastVisiblePosition < lms.itemCount
 
                 if (!isLoading && isLastPosition) {
-                    isLoading = true
-                    viewModel.getPassengers(requireContext().maxElementForXLarge(28, 50))
+                    setLoading(true)
+                    viewModel.getPassengers(requireContext().maxElementForXLarge(28, 50),sizeList)
                 }
             }
         })
     }
 
     private fun initViewModel() = with(viewModel) {
-        getPassengers(requireContext().maxElementForXLarge(28, 50))
+        getPassengers(requireContext().maxElementForXLarge(28, 50),sizeList)
 
         observe(listPassengers()) {
-            isLoading = false
-            adapter.setList(it ?: listOf())
+            setLoading(false)
+            it?.let {
+                adapter.setList(it,sizeList)
+                sizeList += it.size
+            }
         }
+        observe(error()){
+            if(it == true) setLoading(false)
+        }
+    }
+
+    fun setLoading(state: Boolean) {
+        binding.pbPaging.isVisible = state
+        isLoading = state
     }
 
 }

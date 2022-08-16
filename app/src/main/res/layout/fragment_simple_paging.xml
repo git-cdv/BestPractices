@@ -6,8 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.chkan.bestpractices.ui.main.MainViewModel" />
+            type="com.chkan.bestpractices.ui.simple_paging.SimplePagingViewModel" />
     </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_passengers"
@@ -19,4 +24,12 @@
             "androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="16"
         tools:listitem="@layout/item_rv_passengers" />
+
+    <ProgressBar
+        android:id="@+id/pb_paging"
+        android:layout_gravity="center_horizontal|bottom"
+        android:paddingBottom="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    </FrameLayout>
 </layout>

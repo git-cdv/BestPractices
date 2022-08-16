@@ -1,6 +1,5 @@
-package com.chkan.bestpractices.ui.main
+package com.chkan.bestpractices.ui.simple_paging
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,7 +12,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class SimplePagingViewModel @Inject constructor(
     private val dispatchers: Dispatchers,
     private val getDataUseCase : GetPassengersUseCase
 ): ViewModel(){
@@ -27,15 +26,13 @@ class MainViewModel @Inject constructor(
     private var currentPage = 0
     private var total = 1
 
-    fun getPassengers(size: Int) {
+    fun getPassengers(limit: Int, sizeList:Int) {
         dispatchers.launchBackground(viewModelScope) {
-            val currentList = listPassengersLiveData.value?.toMutableList() ?: mutableListOf()
-            if (total > currentList.size) {
-                val list = getDataUseCase.getPassengers(currentPage, size)
+            if (total > sizeList) {
+                val list = getDataUseCase.getPassengers(currentPage, limit)
                 if (list.resultType == ResultType.SUCCESS) {
-                    currentList.addAll(list.data.mapToPassengersUI())
                     if (total == 1) total = list.data?.get(0)?.total ?: 1
-                    listPassengersLiveData.postValue(currentList)
+                    listPassengersLiveData.postValue(list.data.mapToPassengersUI())
                     currentPage++
                 }
             } else {

@@ -1,4 +1,4 @@
-package com.chkan.bestpractices.ui.main
+package com.chkan.bestpractices.ui.simple_paging
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,11 +13,7 @@ import com.chkan.bestpractices.databinding.ItemRvPassengersBinding
 
 class ListPassengersAdapter (private val clickListener: PassListListener): RecyclerView.Adapter<ListPassengersAdapter.ViewHolder>() {
 
-    var data = listOf<PassengersUIModel>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+    private var data: MutableList<PassengersUIModel> = mutableListOf()
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = data[position]
@@ -47,8 +43,9 @@ class ListPassengersAdapter (private val clickListener: PassListListener): Recyc
 
     override fun getItemCount() = data.size
 
-    fun setList(list:List<PassengersUIModel>){
-        data = list
+    fun setList(list: List<PassengersUIModel>, sizeList: Int){
+        data.addAll(list)
+        notifyItemRangeInserted(sizeList+1,list.size)
     }
 }
 
