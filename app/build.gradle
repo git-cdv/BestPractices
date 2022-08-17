@@ -9,6 +9,8 @@ plugins {
 android {
     compileSdk 32
 
+    namespace 'com.chkan.bestpractices'
+
     defaultConfig {
         applicationId "com.chkan.bestpractices"
         minSdk 23
@@ -59,13 +61,11 @@ dependencies {
     kapt "com.google.dagger:hilt-android-compiler:2.40"
 
     //navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
-    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.3'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+    implementation libs.bundles.retrofit
 
     // pretty logs
     implementation 'com.github.ihsanbal:LoggingInterceptor:3.1.0'
@@ -80,8 +80,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
 
     //coroutines
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
     //image

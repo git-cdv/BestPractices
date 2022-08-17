@@ -7,12 +7,30 @@ pluginManagement {
     }
 }
 
+enableFeaturePreview("VERSION_CATALOGS")
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+    }
+    versionCatalogs {
+        libs {
+            alias('navigation-fragment')
+                    .to('androidx.navigation:navigation-fragment-ktx:2.4.2')
+            alias('navigation-ui')
+                    .to('androidx.navigation:navigation-ui-ktx:2.4.2')
+            alias('retrofit')
+                    .to('com.squareup.retrofit2:retrofit:2.9.0')
+            alias('okhttp')
+                    .to('com.squareup.okhttp3:okhttp:5.0.0-alpha.3')
+            alias('logging')
+                    .to('com.squareup.okhttp3:logging-interceptor:4.9.3')
+            bundle('retrofit',
+                    ['retrofit', 'okhttp','logging'])
+        }
     }
 }
 rootProject.name = "BestPractices"
