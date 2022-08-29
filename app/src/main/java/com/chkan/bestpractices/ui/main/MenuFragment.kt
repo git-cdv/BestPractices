@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.chkan.bestpractices.R
+import com.chkan.bestpractices.core.extensions.activityNavController
+import com.chkan.bestpractices.core.extensions.navigateSafely
 import com.google.android.material.button.MaterialButton
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +24,7 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<MaterialButton>(R.id.btn_simple_paging).setOnClickListener {
-            findNavController().navigate(R.id.action_mainFragment_to_pagingFragment)
+            activityNavController().navigateSafely(R.id.action_global_pagingFlowFragment)
         }
     }
 

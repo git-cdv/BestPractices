@@ -4,9 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.fragment.app.activityViewModels
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.chkan.bestpractices.R
 import com.chkan.bestpractices.core.BaseFragment
 import com.chkan.bestpractices.core.maxElementForXLarge
 import com.chkan.bestpractices.core.observe
@@ -16,7 +17,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SimplePagingFragment : BaseFragment<FragmentSimplePagingBinding>(FragmentSimplePagingBinding::inflate) {
 
-    private val viewModel: SimplePagingViewModel by activityViewModels()
+    //scope depends on life graph
+    //implementation("androidx.hilt:hilt-navigation-fragment:1.0.0")
+    private val viewModel: SimplePagingViewModel by hiltNavGraphViewModels(R.id.simple_paging_graph)
 
     private var isLoading = true
     private var sizeList = 0
@@ -77,5 +80,4 @@ class SimplePagingFragment : BaseFragment<FragmentSimplePagingBinding>(FragmentS
         binding.pbPaging.isVisible = state
         isLoading = state
     }
-
 }
