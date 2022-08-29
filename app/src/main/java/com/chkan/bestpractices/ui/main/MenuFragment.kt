@@ -24,7 +24,7 @@ class MenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<MaterialButton>(R.id.btn_simple_paging).setOnClickListener {
-            activityNavController().navigateSafely(R.id.action_global_pagingFlowFragment)
+            activityNavController().navigateSafely(R.id.action_menuFragment_to_SimplePagingFlowFragment)
         }
     }
 

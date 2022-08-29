@@ -5,11 +5,6 @@
     android:id="@+id/main_graph"
     app:startDestination="@id/menuFragment">
 
-    <action
-        android:id="@+id/action_global_pagingFlowFragment"
-        app:destination="@id/SimplePagingFlowFragment"
-        app:popUpTo="@id/main_graph" />
-
     <fragment
         android:id="@+id/SimplePagingFlowFragment"
         android:name="com.chkan.bestpractices.ui.simple_paging.SimplePagingFlowFragment"
@@ -21,5 +16,8 @@
         android:name="com.chkan.bestpractices.ui.main.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_SimplePagingFlowFragment"
+            app:destination="@id/SimplePagingFlowFragment" />
     </fragment>
 </navigation>
