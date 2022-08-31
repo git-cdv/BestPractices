@@ -19,5 +19,13 @@
         <action
             android:id="@+id/action_menuFragment_to_SimplePagingFlowFragment"
             app:destination="@id/SimplePagingFlowFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_mviListFragment"
+            app:destination="@id/mviListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mviListFragment"
+        android:name="com.chkan.bestpractices.ui.mvi_example.ui.MviListFragment"
+        android:label="fragment_mvi_list"
+        tools:layout="@layout/fragment_mvi_list" />
 </navigation>
