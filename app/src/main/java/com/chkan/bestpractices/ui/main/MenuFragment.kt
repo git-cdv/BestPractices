@@ -2,6 +2,7 @@ package com.chkan.bestpractices.ui.main
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.chkan.bestpractices.R
 import com.chkan.bestpractices.core.BaseFragment
 import com.chkan.bestpractices.core.extensions.activityNavController
@@ -19,6 +20,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
         }
         binding.btnMvi.setOnClickListener {
             activityNavController().navigateSafely(R.id.action_menuFragment_to_mviListFragment)
+        }
+        binding.btnDropdownList.setOnClickListener {
+            findNavController().navigate(R.id.action_menuFragment_to_dropDownFragment)
         }
 
     }

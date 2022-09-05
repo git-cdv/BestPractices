@@ -1,0 +1,1 @@
+https://proandroiddev.com/mvi-architecture-with-a-state-machine-basics-721c5ebed893

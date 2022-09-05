@@ -22,10 +22,18 @@
         <action
             android:id="@+id/action_menuFragment_to_mviListFragment"
             app:destination="@id/mviListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_dropDownFragment"
+            app:destination="@id/dropDownFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
         android:name="com.chkan.bestpractices.ui.mvi_example.ui.MviListFragment"
         android:label="fragment_mvi_list"
         tools:layout="@layout/fragment_mvi_list" />
+    <fragment
+        android:id="@+id/dropDownFragment"
+        android:name="com.chkan.bestpractices.ui.dropdown_list.DropDownFragment"
+        android:label="fragment_drop_down"
+        tools:layout="@layout/fragment_drop_down" />
 </navigation>
