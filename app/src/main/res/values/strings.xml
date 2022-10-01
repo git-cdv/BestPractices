@@ -6,4 +6,12 @@
     <string name="simple_paging">Simple paging</string>
     <string name="dropdown_list">Dropdown List</string>
     <string name="mvi_example">Mvi example</string>
+    <string name="auth">Auth</string>
+    <string name="auth_canceled">Auth canceled</string>
+    <string name="get_user_error">User error</string>
+    <string name="get_user_info">Get user info</string>
+    <string name="corrupt_access_token">Corrupt access token</string>
+    <string name="logout">Logout</string>
+    <string name="auth_login">Auth_login</string>
+
 </resources>

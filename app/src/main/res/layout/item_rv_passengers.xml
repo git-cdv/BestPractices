@@ -6,11 +6,11 @@
     <data>
         <variable
             name="pass"
-            type="com.chkan.bestpractices.ui.models.PassengersUIModel" />
+            type="com.chkan.bestpractices.simple_paging.models.PassengersUIModel" />
 
         <variable
             name="clickListener"
-            type="com.chkan.bestpractices.ui.simple_paging.PassListListener" />
+            type="com.chkan.bestpractices.simple_paging.ui.PassListListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

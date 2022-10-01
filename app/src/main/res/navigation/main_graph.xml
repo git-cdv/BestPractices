@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/SimplePagingFlowFragment"
-        android:name="com.chkan.bestpractices.ui.simple_paging.SimplePagingFlowFragment"
+        android:name="com.chkan.bestpractices.simple_paging.ui.SimplePagingFlowFragment"
         android:label="paging_fragment_main"
         tools:layout="@layout/flow_simple_paging" />
 
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.chkan.bestpractices.ui.main.MenuFragment"
+        android:name="com.chkan.bestpractices.main.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -28,12 +28,14 @@
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
-        android:name="com.chkan.bestpractices.ui.mvi_example.ui.MviListFragment"
+        android:name="com.chkan.bestpractices.mvi_example.ui.MviListFragment"
         android:label="fragment_mvi_list"
         tools:layout="@layout/fragment_mvi_list" />
     <fragment
         android:id="@+id/dropDownFragment"
-        android:name="com.chkan.bestpractices.ui.dropdown_list.DropDownFragment"
+        android:name="com.chkan.bestpractices.dropdown_list.DropDownFragment"
         android:label="fragment_drop_down"
         tools:layout="@layout/fragment_drop_down" />
+
+    <include app:graph="@navigation/auth_graph" />
 </navigation>

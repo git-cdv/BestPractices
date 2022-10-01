@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.chkan.bestpractices.ui.simple_paging.SimplePagingViewModel" />
+            type="com.chkan.bestpractices.simple_paging.ui.SimplePagingViewModel" />
     </data>
 
     <FrameLayout

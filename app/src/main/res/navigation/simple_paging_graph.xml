@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/simplePagingFragment"
-        android:name="com.chkan.bestpractices.ui.simple_paging.SimplePagingFragment"
+        android:name="com.chkan.bestpractices.simple_paging.ui.SimplePagingFragment"
         android:label="SimplePagingFragment" />
 </navigation>
