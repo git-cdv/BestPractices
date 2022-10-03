@@ -13,5 +13,8 @@
     <string name="corrupt_access_token">Corrupt access token</string>
     <string name="logout">Logout</string>
     <string name="auth_login">Auth_login</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="location_tracking">Location tracking</string>
 
 </resources>

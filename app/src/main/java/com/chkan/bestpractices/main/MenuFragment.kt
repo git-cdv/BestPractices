@@ -29,6 +29,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnAuth.setOnClickListener {
                 findNavController().navigate(R.id.auth_graph)
             }
+            btnLocation.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_locationFragment)
+            }
         }
     }
 

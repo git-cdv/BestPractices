@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_menuFragment_to_dropDownFragment"
             app:destination="@id/dropDownFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
@@ -38,4 +41,9 @@
         tools:layout="@layout/fragment_drop_down" />
 
     <include app:graph="@navigation/auth_graph" />
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.chkan.bestpractices.location_tracking.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>

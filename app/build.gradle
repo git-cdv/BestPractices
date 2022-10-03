@@ -99,4 +99,10 @@ dependencies {
     //image
     implementation("io.coil-kt:coil:2.1.0")
 
+    // Location Services
+    implementation 'com.google.android.gms:play-services-location:20.0.0'
+
+    //maps
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+
 }
