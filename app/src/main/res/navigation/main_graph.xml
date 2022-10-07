@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_menuFragment_to_locationFragment"
             app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_lottieFragment"
+            app:destination="@id/lottieFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
@@ -46,4 +49,9 @@
         android:name="com.chkan.bestpractices.location_tracking.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
+    <fragment
+        android:id="@+id/lottieFragment"
+        android:name="com.chkan.bestpractices.lottie_animation.LottieFragment"
+        android:label="fragment_lottie"
+        tools:layout="@layout/fragment_lottie" />
 </navigation>
