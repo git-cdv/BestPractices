@@ -17,5 +17,7 @@
     <string name="stop">Stop</string>
     <string name="location_tracking">Location tracking</string>
     <string name="lottie_animation">Lottie animation</string>
+    <string name="notification">Notification</string>
+    <string name="bipmap_with_stroke">Bipmap with stroke</string>
 
 </resources>

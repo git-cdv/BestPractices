@@ -35,6 +35,12 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnLottie.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_lottieFragment)
             }
+            btnNotification.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_notificationFragment)
+            }
+            btnBmp.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_bipmapFragment)
+            }
         }
     }
 

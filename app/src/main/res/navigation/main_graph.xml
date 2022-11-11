@@ -31,6 +31,12 @@
         <action
             android:id="@+id/action_menuFragment_to_lottieFragment"
             app:destination="@id/lottieFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_bipmapFragment"
+            app:destination="@id/bipmapFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
@@ -54,4 +60,14 @@
         android:name="com.chkan.bestpractices.lottie_animation.LottieFragment"
         android:label="fragment_lottie"
         tools:layout="@layout/fragment_lottie" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.chkan.bestpractices.notifications.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/bipmapFragment"
+        android:name="com.chkan.bestpractices.bipmap_with_stroke.BipmapFragment"
+        android:label="fragment_bipmap"
+        tools:layout="@layout/fragment_bipmap" />
 </navigation>
