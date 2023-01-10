@@ -37,6 +37,12 @@
         <action
             android:id="@+id/action_menuFragment_to_bipmapFragment"
             app:destination="@id/bipmapFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_storagesFragment"
+            app:destination="@id/storagesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_customViewFragment"
+            app:destination="@id/customViewFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
@@ -70,4 +76,13 @@
         android:name="com.chkan.bestpractices.bipmap_with_stroke.BipmapFragment"
         android:label="fragment_bipmap"
         tools:layout="@layout/fragment_bipmap" />
+    <fragment
+        android:id="@+id/storagesFragment"
+        android:name="com.chkan.bestpractices.storages.StoragesFragment"
+        android:label="StoragesFragment" />
+    <fragment
+        android:id="@+id/customViewFragment"
+        android:name="com.chkan.bestpractices.custom_view.CustomViewFragment"
+        android:label="fragment_custom_view"
+        tools:layout="@layout/fragment_custom_view" />
 </navigation>

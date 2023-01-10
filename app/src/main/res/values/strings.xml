@@ -19,5 +19,8 @@
     <string name="lottie_animation">Lottie animation</string>
     <string name="notification">Notification</string>
     <string name="bipmap_with_stroke">Bipmap with stroke</string>
+    <string name="storages">Storages</string>
+    <string name="custom_view">Custom View</string>
+
 
 </resources>

@@ -41,6 +41,12 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnBmp.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_bipmapFragment)
             }
+            btnStorage.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_storagesFragment)
+            }
+            btnCustomView.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_customViewFragment)
+            }
         }
     }
 

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <com.chkan.bestpractices.custom_view.CustomViewGroup
+        android:id="@+id/view_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/qwe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="Вам привет от Android Broadcast"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/hjk"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="20:10"
+            android:textSize="16sp"
+            app:flow_horizontalBias="1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </com.chkan.bestpractices.custom_view.CustomViewGroup>
+
+    <com.chkan.bestpractices.custom_view.CustomTextView
+        android:id="@+id/TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:clipToPadding="false"
+        app:verticalOffset="20dp" />
+
+    <com.chkan.bestpractices.custom_view.GantView
+        android:id="@+id/gant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+        <com.chkan.bestpractices.custom_view.FlagView
+            android:id="@+id/flag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</ScrollView>
