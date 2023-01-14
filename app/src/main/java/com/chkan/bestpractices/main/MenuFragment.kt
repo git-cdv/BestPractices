@@ -47,6 +47,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnCustomView.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_customViewFragment)
             }
+            btnAlarm.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_alarmFragment)
+            }
         }
     }
 

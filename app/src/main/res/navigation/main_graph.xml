@@ -43,6 +43,9 @@
         <action
             android:id="@+id/action_menuFragment_to_customViewFragment"
             app:destination="@id/customViewFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_alarmFragment"
+            app:destination="@id/alarmFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
@@ -85,4 +88,9 @@
         android:name="com.chkan.bestpractices.custom_view.CustomViewFragment"
         android:label="fragment_custom_view"
         tools:layout="@layout/fragment_custom_view" />
+    <fragment
+        android:id="@+id/alarmFragment"
+        android:name="com.chkan.bestpractices.alarm_manager.AlarmFragment"
+        android:label="fragment_alarm"
+        tools:layout="@layout/fragment_alarm" />
 </navigation>
