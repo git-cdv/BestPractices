@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_menuFragment_to_alarmFragment"
             app:destination="@id/alarmFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_gesturesFragment"
+            app:destination="@id/gesturesFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
@@ -93,4 +96,9 @@
         android:name="com.chkan.bestpractices.alarm_manager.AlarmFragment"
         android:label="fragment_alarm"
         tools:layout="@layout/fragment_alarm" />
+    <fragment
+        android:id="@+id/gesturesFragment"
+        android:name="com.chkan.bestpractices.gestures.GesturesFragment"
+        android:label="fragment_gestures"
+        tools:layout="@layout/fragment_gestures" />
 </navigation>

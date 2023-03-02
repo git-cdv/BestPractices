@@ -50,6 +50,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnAlarm.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_alarmFragment)
             }
+            btnGestures.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_gesturesFragment)
+            }
         }
     }
 
