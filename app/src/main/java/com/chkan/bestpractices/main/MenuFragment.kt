@@ -53,6 +53,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnGestures.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_gesturesFragment)
             }
+            btnOptimaze.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_optimazeImageFragment)
+            }
         }
     }
 

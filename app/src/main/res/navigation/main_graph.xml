@@ -49,6 +49,9 @@
         <action
             android:id="@+id/action_menuFragment_to_gesturesFragment"
             app:destination="@id/gesturesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_optimazeImageFragment"
+            app:destination="@id/optimazeImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/mviListFragment"
@@ -101,4 +104,8 @@
         android:name="com.chkan.bestpractices.gestures.GesturesFragment"
         android:label="fragment_gestures"
         tools:layout="@layout/fragment_gestures" />
+    <fragment
+        android:id="@+id/optimazeImageFragment"
+        android:name="com.chkan.bestpractices.optimaze_image_upload.OptimazeImageFragment"
+        android:label="OptimazeImageFragment" />
 </navigation>
