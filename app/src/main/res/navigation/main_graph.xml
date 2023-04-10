@@ -52,7 +52,15 @@
         <action
             android:id="@+id/action_menuFragment_to_optimazeImageFragment"
             app:destination="@id/optimazeImageFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_coroutinesFragment"
+            app:destination="@id/coroutinesFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/coroutinesFragment"
+        android:name="com.chkan.bestpractices.coroutines.CoroutinesFragment"
+        android:label="fragment_coroutines"
+        tools:layout="@layout/fragment_coroutines" />
     <fragment
         android:id="@+id/mviListFragment"
         android:name="com.chkan.bestpractices.mvi_example.ui.MviListFragment"

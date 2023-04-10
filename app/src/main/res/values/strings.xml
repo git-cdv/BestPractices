@@ -22,4 +22,5 @@
     <string name="alarm">Alarm</string>
     <string name="gestures">Gestures</string>
     <string name="optimize_image">Optimize image</string>
+    <string name="coroutines_practice">Coroutines practice</string>
 </resources>

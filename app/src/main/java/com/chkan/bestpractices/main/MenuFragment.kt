@@ -56,6 +56,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnOptimaze.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_optimazeImageFragment)
             }
+            btnCoroutinesPractice.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_coroutinesFragment)
+            }
         }
     }
 
