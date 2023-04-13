@@ -95,6 +95,8 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
+    // for flow with asLiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
 
     //image
     implementation("io.coil-kt:coil:2.1.0")
@@ -111,6 +113,12 @@ dependencies {
 
     //animation Lottie
     implementation 'com.airbnb.android:lottie:3.4.1'
+
+    //room
+    implementation "androidx.room:room-runtime:2.5.1"
+    implementation 'androidx.room:room-ktx:2.5.1'
+    kapt "androidx.room:room-compiler:2.5.1"
+
 
     //tests
     testImplementation "org.jetbrains.kotlin:kotlin-test:1.5.21"

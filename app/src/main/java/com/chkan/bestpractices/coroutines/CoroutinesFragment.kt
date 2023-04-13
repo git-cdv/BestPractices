@@ -3,6 +3,8 @@ package com.chkan.bestpractices.coroutines
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.navigation.fragment.findNavController
+import com.chkan.bestpractices.R
 import com.chkan.bestpractices.core.BaseFragment
 import com.chkan.bestpractices.databinding.FragmentCoroutinesBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +21,10 @@ class CoroutinesFragment : BaseFragment<FragmentCoroutinesBinding>(FragmentCorou
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.button5.setOnClickListener {
+            findNavController().navigate(R.id.action_coroutinesFragment_to_coroutinesExampleFragment)
+        }
 
         binding.button.setOnClickListener {
             // пример работы передачи контекста

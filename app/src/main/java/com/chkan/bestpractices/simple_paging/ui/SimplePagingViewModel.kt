@@ -4,7 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.chkan.bestpractices.core.Dispatchers
-import com.chkan.bestpractices.core.ResultType
+import com.chkan.bestpractices.core.doIfFailure
+import com.chkan.bestpractices.core.doIfSuccess
 import com.chkan.bestpractices.simple_paging.models.PassengersUIModel
 import com.chkan.bestpractices.simple_paging.domain.usecases.GetPassengersUseCase
 import com.chkan.bestpractices.simple_paging.models.PassengersUIMapper
@@ -27,17 +28,18 @@ class SimplePagingViewModel @Inject constructor(
     private var currentPage = 0
     private var total = 1
 
-    fun getPassengers(limit: Int, sizeList:Int) {
+    fun getPassengers(limit: Int, sizeList: Int) {
         dispatchers.launchBackground(viewModelScope) {
             if (total > sizeList) {
-                val list = getDataUseCase.getPassengers(currentPage, limit)
-                if (list.resultType == ResultType.SUCCESS) {
-                    if (total == 1) total = list.data?.get(0)?.total ?: 1
-                    listPassengersLiveData.postValue(mapperToUI.map(list.data))
+                val result = getDataUseCase.getPassengers(currentPage, limit)
+                result.doIfSuccess { list ->
+                    if (total == 1) total = list.firstOrNull()?.total ?: 1
+                    listPassengersLiveData.postValue(mapperToUI.map(list))
                     currentPage++
                 }
-            } else {
-                errorLiveData.postValue(true)
+                result.doIfFailure { error, throwable ->
+                    errorLiveData.postValue(true)
+                }
             }
         }
     }

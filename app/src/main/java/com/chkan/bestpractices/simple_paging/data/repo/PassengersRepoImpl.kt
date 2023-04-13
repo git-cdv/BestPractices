@@ -1,6 +1,6 @@
 package com.chkan.bestpractices.simple_paging.data.repo
 
-import com.chkan.bestpractices.core.MyResult
+import com.chkan.bestpractices.core.ResultOf
 import com.chkan.bestpractices.simple_paging.data.sources.network.NetworkPassengersSource
 import com.chkan.bestpractices.simple_paging.data.sources.network.models.PassengersDataModel
 import com.chkan.bestpractices.simple_paging.domain.models.PassengersDomainModel
@@ -16,9 +16,9 @@ class PassengersRepoImpl @Inject constructor(private val networkApi: NetworkPass
     override suspend fun getPassengers(page: Int, size:Int) =
         try {
             val list = networkApi.getPassengers(page,size)
-            MyResult.success(list.mapToPassengersDomain())
+            ResultOf.Success(list.mapToPassengersDomain())
         } catch (e: Exception) {
-            MyResult.error(e)
+            ResultOf.Error(e.message,e)
         }
 
     /**

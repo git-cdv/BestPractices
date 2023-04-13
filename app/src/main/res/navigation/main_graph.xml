@@ -60,7 +60,11 @@
         android:id="@+id/coroutinesFragment"
         android:name="com.chkan.bestpractices.coroutines.CoroutinesFragment"
         android:label="fragment_coroutines"
-        tools:layout="@layout/fragment_coroutines" />
+        tools:layout="@layout/fragment_coroutines" >
+        <action
+            android:id="@+id/action_coroutinesFragment_to_coroutinesExampleFragment"
+            app:destination="@id/coroutinesExampleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mviListFragment"
         android:name="com.chkan.bestpractices.mvi_example.ui.MviListFragment"
@@ -116,4 +120,8 @@
         android:id="@+id/optimazeImageFragment"
         android:name="com.chkan.bestpractices.optimaze_image_upload.OptimazeImageFragment"
         android:label="OptimazeImageFragment" />
+    <fragment
+        android:id="@+id/coroutinesExampleFragment"
+        android:name="com.chkan.bestpractices.coroutines.CoroutinesExampleFragment"
+        android:label="CoroutinesExampleFragment" />
 </navigation>
