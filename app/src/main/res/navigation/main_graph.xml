@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_menuFragment_to_coroutinesFragment"
             app:destination="@id/coroutinesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_fontSizeFragment"
+            app:destination="@id/fontSizeFragment" />
     </fragment>
     <fragment
         android:id="@+id/coroutinesFragment"
@@ -124,4 +127,8 @@
         android:id="@+id/coroutinesExampleFragment"
         android:name="com.chkan.bestpractices.coroutines.CoroutinesExampleFragment"
         android:label="CoroutinesExampleFragment" />
+    <fragment
+        android:id="@+id/fontSizeFragment"
+        android:name="com.chkan.bestpractices.change_text_size.FontSizeFragment"
+        android:label="fontSizeFragment" />
 </navigation>

@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_alarm.xml" value="0.2598958333333333" />
+        <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_auth.xml" value="0.2598958333333333" />
         <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_coroutines.xml" value="0.2824074074074074" />
         <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_coroutines_example.xml" value="0.29270833333333335" />
         <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_drop_down.xml" value="0.36666666666666664" />
+        <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_font_size.xml" value="0.25885416666666666" />
+        <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_menu.xml" value="0.33" />
+        <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_mvi_list.xml" value="0.2598958333333333" />
         <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_simple_paging.xml" value="0.29270833333333335" />
+        <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/fragment_user_info.xml" value="0.2598958333333333" />
         <entry key="..\:/Android/Projects/BestPractices/app/src/main/res/layout/item_rv_user.xml" value="0.29270833333333335" />
         <entry key="..\:/Users/chkan/AndroidStudioProjects/BestPractices/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/chkan/AndroidStudioProjects/BestPractices/app/src/main/res/layout/collapsed_item_layout.xml" value="0.30364583333333334" />

@@ -59,6 +59,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnCoroutinesPractice.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_coroutinesFragment)
             }
+            btnChangeTextSize.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_fontSizeFragment)
+            }
         }
     }
 
