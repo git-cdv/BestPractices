@@ -8,4 +8,5 @@ interface UserRepository {
     suspend fun addUser(user: User)
     suspend fun deleteAllUsers()
     suspend fun fetchUsers()
+    suspend fun fetchUsersInParallel(page:Int) : List<User>
 }

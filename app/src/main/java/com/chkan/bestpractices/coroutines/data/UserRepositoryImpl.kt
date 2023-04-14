@@ -42,4 +42,10 @@ class UserRepositoryImpl @Inject constructor(
         userDao.insertAll(usersDb)
     }
 
+    override suspend fun fetchUsersInParallel(page: Int): List<User> {
+        val usersApi = networkApi.getPassengers(page, 10)
+        val usersDb = passMapperToUserDb.mapList(usersApi)
+        return userMapperDbToUi.mapList(usersDb)
+    }
+
 }

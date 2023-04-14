@@ -1,7 +1,7 @@
 package com.chkan.bestpractices.coroutines.domain.usecases
 
-import android.util.Log
 import com.chkan.bestpractices.core.ResultOf
+import com.chkan.bestpractices.coroutines.domain.User
 import com.chkan.bestpractices.coroutines.domain.UserRepository
 import javax.inject.Inject
 
@@ -15,5 +15,9 @@ class FetchOrGetUsersUseCase @Inject constructor (
             } catch (e: Exception) {
                 ResultOf.Error(e.message,e)
             }
+    }
+
+    suspend fun runInParallel(page:Int) : List<User> {
+        return userRepository.fetchUsersInParallel(page)
     }
 }

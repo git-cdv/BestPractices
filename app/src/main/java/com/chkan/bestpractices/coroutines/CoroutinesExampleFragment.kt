@@ -2,6 +2,7 @@ package com.chkan.bestpractices.coroutines
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import com.chkan.bestpractices.core.BaseFragment
 import com.chkan.bestpractices.core.extensions.onClick
@@ -23,18 +24,29 @@ class CoroutinesExampleFragment : BaseFragment<FragmentCoroutinesExampleBinding>
         initRecyclerView()
         initViewModel()
         initClicks()
+        initSearch()
+    }
+
+    private fun initSearch() {
+        binding.etSearch.doAfterTextChanged { viewModel.search(it.toString()) }
     }
 
     private fun initClicks() {
-        binding.addUser.onClick {
-            viewModel.onAddClick(binding.etUsers.text.toString())
+        with(binding) {
+            addUser.onClick {
+                viewModel.onAddClick(binding.etUsers.text.toString())
+            }
+            clearUsers.onClick {
+                viewModel.onClearClick()
+            }
+            fetchUsers.onClick {
+                viewModel.fetchUsers()
+            }
+            fetchParallel.onClick {
+                viewModel.fetchUsersInParallel()
+            }
         }
-        binding.clearUsers.onClick {
-            viewModel.onClearClick()
-        }
-        binding.fetchUsers.onClick {
-            viewModel.fetchUsers()
-        }
+
     }
 
     private fun initRecyclerView() {
@@ -43,6 +55,12 @@ class CoroutinesExampleFragment : BaseFragment<FragmentCoroutinesExampleBinding>
 
     private fun initViewModel() = with(viewModel) {
         observe(users){
+            adapter.setList(it ?: mutableListOf())
+        }
+        observe(listUsers()){
+            adapter.setList(it ?: mutableListOf())
+        }
+        observe(searchResultLiveData){
             adapter.setList(it ?: mutableListOf())
         }
     }

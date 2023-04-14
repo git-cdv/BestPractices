@@ -13,6 +13,8 @@ class FontSizeFragment : BaseFragment<FragmentFontSizeBinding>(FragmentFontSizeB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // text size with SP - can change, but with DP - none
+
         binding.small.setOnClickListener {
             (activity as MainActivity).updateFontSize(FontSize.SMALL)
         }
