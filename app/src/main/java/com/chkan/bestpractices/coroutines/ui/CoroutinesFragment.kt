@@ -1,4 +1,4 @@
-package com.chkan.bestpractices.coroutines
+package com.chkan.bestpractices.coroutines.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -181,6 +181,10 @@ class CoroutinesFragment : BaseFragment<FragmentCoroutinesBinding>(FragmentCorou
 
             */
 
+        }
+
+        binding.button6.setOnClickListener {
+            findNavController().navigate(R.id.action_coroutinesFragment_to_coroutinesScenariosFragment)
         }
 
     }

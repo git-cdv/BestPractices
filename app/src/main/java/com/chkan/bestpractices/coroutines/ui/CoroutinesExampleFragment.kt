@@ -1,4 +1,4 @@
-package com.chkan.bestpractices.coroutines
+package com.chkan.bestpractices.coroutines.ui
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,6 @@ import com.chkan.bestpractices.core.BaseFragment
 import com.chkan.bestpractices.core.extensions.onClick
 import com.chkan.bestpractices.core.observe
 import com.chkan.bestpractices.coroutines.domain.CoroutineExampleViewModel
-import com.chkan.bestpractices.coroutines.ui.UsersAdapter
 import com.chkan.bestpractices.databinding.FragmentCoroutinesExampleBinding
 import dagger.hilt.android.AndroidEntryPoint
 
