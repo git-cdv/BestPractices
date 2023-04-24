@@ -119,6 +119,8 @@ dependencies {
     implementation 'androidx.room:room-ktx:2.5.1'
     kapt "androidx.room:room-compiler:2.5.1"
 
+    //encrypt
+    implementation 'com.google.crypto.tink:tink-android:1.8.0'
 
     //tests
     testImplementation "org.jetbrains.kotlin:kotlin-test:1.5.21"

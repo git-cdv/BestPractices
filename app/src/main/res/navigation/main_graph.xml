@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_menuFragment_to_fontSizeFragment"
             app:destination="@id/fontSizeFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_e2eEncryptFragment"
+            app:destination="@id/e2eEncryptFragment" />
     </fragment>
     <fragment
         android:id="@+id/coroutinesFragment"
@@ -71,6 +74,11 @@
             android:id="@+id/action_coroutinesFragment_to_coroutinesScenariosFragment"
             app:destination="@id/coroutinesScenariosFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/e2eEncryptFragment"
+        android:name="com.chkan.bestpractices.e2e_encrypt.E2eEncryptFragment"
+        android:label="e2eEncryptFragment"
+        tools:layout="@layout/fragment_encrypt" />
     <fragment
         android:id="@+id/coroutinesScenariosFragment"
         android:name="com.chkan.bestpractices.coroutines.ui.CoroutinesScenariosFragment"

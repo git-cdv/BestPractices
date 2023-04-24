@@ -62,6 +62,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnChangeTextSize.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_fontSizeFragment)
             }
+            btnEncrypt.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_e2eEncryptFragment)
+            }
         }
     }
 
