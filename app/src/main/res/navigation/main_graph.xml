@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_menuFragment_to_e2eEncryptFragment"
             app:destination="@id/e2eEncryptFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_luepTranslatorFragment"
+            app:destination="@id/luepTranslatorFragment" />
     </fragment>
     <fragment
         android:id="@+id/coroutinesFragment"
@@ -147,4 +150,9 @@
         android:id="@+id/fontSizeFragment"
         android:name="com.chkan.bestpractices.change_text_size.FontSizeFragment"
         android:label="fontSizeFragment" />
+    <fragment
+        android:id="@+id/luepTranslatorFragment"
+        android:name="com.chkan.bestpractices.luep_translater.LuepTranslatorFragment"
+        android:label="fragment_luep_translator"
+        tools:layout="@layout/fragment_luep_translator" />
 </navigation>

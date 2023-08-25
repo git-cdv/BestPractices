@@ -3,6 +3,7 @@ package com.chkan.bestpractices.di
 import android.content.Context
 import android.util.Log
 import com.chkan.bestpractices.BuildConfig
+import com.chkan.bestpractices.luep_translater.data.LuepService
 import com.chkan.bestpractices.simple_paging.data.repo.PassengersRepoImpl
 import com.chkan.bestpractices.simple_paging.data.sources.network.NetworkPassengersSource
 import com.chkan.bestpractices.simple_paging.di.quialifiers.InterceptorLogTag
@@ -23,6 +24,7 @@ import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -90,6 +92,22 @@ object NetworkModule {
             .addInterceptor(requestInterceptor)
         return builder.build()
     }
+
+    ///FOR LUEP TRANSLATOR
+    @Provides
+    @Singleton
+    @Named("Luep")
+    internal fun provideLuepRetrofit(okHttpClient: OkHttpClient) : Retrofit = Retrofit.Builder()
+        .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
+        .baseUrl("https://api-dev.luep.app/")
+        .client(okHttpClient)
+        .build()
+
+    @Provides
+    @Singleton
+    internal fun provideLuepService(@Named("Luep") retrofit : Retrofit) : LuepService = retrofit.create(
+        LuepService::class.java)
+
 }
 
 @Module

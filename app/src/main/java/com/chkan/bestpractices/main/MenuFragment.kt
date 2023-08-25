@@ -65,6 +65,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnEncrypt.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_e2eEncryptFragment)
             }
+            btnLuepTranslator.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_luepTranslatorFragment)
+            }
         }
     }
 
