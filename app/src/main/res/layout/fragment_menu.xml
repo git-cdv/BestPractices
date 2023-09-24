@@ -195,4 +195,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_encrypt" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTestLiveData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="BEST RECYCLERVIEW + DIFFUTILS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_encrypt" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

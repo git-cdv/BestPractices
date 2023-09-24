@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_menuFragment_to_luepTranslatorFragment"
             app:destination="@id/luepTranslatorFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_testLiveDataFragment"
+            app:destination="@id/testLiveDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/coroutinesFragment"
@@ -155,4 +158,8 @@
         android:name="com.chkan.bestpractices.luep_translater.LuepTranslatorFragment"
         android:label="fragment_luep_translator"
         tools:layout="@layout/fragment_luep_translator" />
+    <fragment
+        android:id="@+id/testLiveDataFragment"
+        android:name="com.chkan.bestpractices.best_rv.BestRvFragment"
+        android:label="TestLiveDataFragment" />
 </navigation>

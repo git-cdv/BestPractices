@@ -31,7 +31,7 @@ class LuepViewModel @Inject constructor(
 
     private var token: String? = null
 
-    private val listLocales = listOf("bn_IN","es_ES","fa_IR","fr_FR","hi_IN","ne_NP","or_IN","pa_IN","ps_AR","pt_PT","ur_IN")
+    private val listLocales = listOf("bn_IN","fr_FR","hi_IN","ne_NP","or_IN","ps_AR","fa_IR","pt_PT","pa_IN","es_ES","ur_IN")
 
     fun login(){
         viewModelScope.launch(Dispatchers.IO) {

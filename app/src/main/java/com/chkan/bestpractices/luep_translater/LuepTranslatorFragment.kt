@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
@@ -62,6 +63,7 @@ class LuepTranslatorFragment : BaseFragment<FragmentLuepTranslatorBinding>(Fragm
             it?.let { text ->
                 binding.progressBar.isVisible = false
                 binding.textOutput.text = text
+                Log.d("CHKAN", "$text")
             }
         }
     }

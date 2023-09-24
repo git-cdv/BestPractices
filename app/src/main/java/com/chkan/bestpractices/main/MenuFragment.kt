@@ -68,6 +68,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnLuepTranslator.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_luepTranslatorFragment)
             }
+            btnTestLiveData.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_testLiveDataFragment)
+            }
         }
     }
 
