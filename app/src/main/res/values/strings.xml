@@ -25,4 +25,8 @@
     <string name="coroutines_practice">Coroutines practice</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cant_move_user">Cant move user</string>
+    <string name="cant_delete_user">Cant delete user</string>
+    <string name="cant_load_user_details">Cant load user details</string>
+    <string name="user_has_been_deleted">User has been deleted</string>
 </resources>

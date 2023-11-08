@@ -65,8 +65,11 @@
             android:id="@+id/action_menuFragment_to_luepTranslatorFragment"
             app:destination="@id/luepTranslatorFragment" />
         <action
-            android:id="@+id/action_menuFragment_to_testLiveDataFragment"
-            app:destination="@id/testLiveDataFragment" />
+            android:id="@+id/action_menuFragment_to_bestRvFragment"
+            app:destination="@id/bestRvFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_jwtAuthFragment"
+            app:destination="@id/jwtAuthFragment" />
     </fragment>
     <fragment
         android:id="@+id/coroutinesFragment"
@@ -159,7 +162,27 @@
         android:label="fragment_luep_translator"
         tools:layout="@layout/fragment_luep_translator" />
     <fragment
-        android:id="@+id/testLiveDataFragment"
-        android:name="com.chkan.bestpractices.best_rv.BestRvFragment"
-        android:label="TestLiveDataFragment" />
+        android:id="@+id/bestRvFragment"
+        android:name="com.chkan.bestpractices.best_rv.ui.list.BestRvFragment"
+        android:label="BestRvFragment">
+        <action
+            android:id="@+id/action_bestRvFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.chkan.bestpractices.best_rv.ui.details.UserDetailsFragment"
+        android:label="UserDetailsFragment" />
+    <fragment
+        android:id="@+id/jwtAuthFragment"
+        android:name="com.chkan.bestpractices.jwt_auth.JwtAuthFragment"
+        android:label="JwtAuthFragment" >
+        <action
+            android:id="@+id/action_jwtAuthFragment_to_authResultFragment"
+            app:destination="@id/authResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authResultFragment"
+        android:name="com.chkan.bestpractices.jwt_auth.AuthResultFragment"
+        android:label="AuthResultFragment" />
 </navigation>

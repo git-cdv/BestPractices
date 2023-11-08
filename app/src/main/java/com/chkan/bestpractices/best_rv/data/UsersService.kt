@@ -1,17 +1,26 @@
 package com.chkan.bestpractices.best_rv.data
 
+import android.util.Log
+import com.chkan.bestpractices.best_rv.core.exceptions.UserNotFoundException
+import com.chkan.bestpractices.best_rv.core.tasks.SimpleTask
+import com.chkan.bestpractices.best_rv.core.tasks.Task
+import com.chkan.bestpractices.best_rv.data.models.User
+import com.chkan.bestpractices.best_rv.data.models.UserDetails
 import com.github.javafaker.Faker
 import java.util.Collections
+import java.util.concurrent.Callable
 
 typealias UsersListener = (users: List<User>) -> Unit
 
 class UsersService {
 
     private var users = mutableListOf<User>()
+    private var loaded = false
 
     private val listeners = mutableSetOf<UsersListener>()
 
-    init {
+    fun loadUsers(): Task<Unit> = SimpleTask<Unit>(Callable {
+        Thread.sleep(2000)
         val faker = Faker.instance()
         IMAGES.shuffle()
         users = (1..100).map { User(
@@ -20,45 +29,54 @@ class UsersService {
             company = faker.company().name(),
             photo = IMAGES[it % IMAGES.size]
         ) }.toMutableList()
-    }
+        loaded = true
+        notifyChanges()
+    })
 
-    fun getUsers(): List<User> {
-        return users
-    }
+    fun getById(id: Long): Task<UserDetails> = SimpleTask<UserDetails>(Callable {
+        Thread.sleep(2000)
+        Log.d("CHKAN", "List Users: $users")
+        val user = users.firstOrNull { it.id == id } ?: throw UserNotFoundException()
+        return@Callable UserDetails(
+            user = user,
+            details = Faker.instance().lorem().paragraphs(3).joinToString("\n\n")
+        )
+    })
 
-    fun deleteUser(user: User) {
-        val indexToDelete = findIndexById(user.id)
+    fun deleteUser(user: User): Task<Unit> = SimpleTask<Unit>(Callable {
+        Thread.sleep(2000)
+        val indexToDelete = users.indexOfFirst { it.id == user.id }
         if (indexToDelete != -1) {
-            users = ArrayList(users)
             users.removeAt(indexToDelete)
             notifyChanges()
         }
-    }
+    })
 
-    fun moveUser(user: User, moveBy: Int) {
-        val oldIndex = findIndexById(user.id)
-        if (oldIndex == -1) return
+    fun moveUser(user: User, moveBy: Int): Task<Unit> = SimpleTask<Unit>(Callable {
+        Thread.sleep(2000)
+        val oldIndex = users.indexOfFirst { it.id == user.id }
+        if (oldIndex == -1) return@Callable
         val newIndex = oldIndex + moveBy
-        if (newIndex < 0 || newIndex >= users.size) return
-        users = ArrayList(users)
+        if (newIndex < 0 || newIndex >= users.size) return@Callable
         Collections.swap(users, oldIndex, newIndex)
         notifyChanges()
-    }
+    })
 
-    fun fireUser(user: User) {
-        val index = findIndexById(user.id)
-        if (index == -1) return
+    fun fireUser(user: User): Task<Unit> = SimpleTask<Unit>(Callable {
+        Thread.sleep(2000)
+        val index = users.indexOfFirst { it.id == user.id }
+        if (index == -1) return@Callable
         val updatedUser = users[index].copy(company = "")
         users = ArrayList(users)
         users[index] = updatedUser
         notifyChanges()
-    }
-
-    private fun findIndexById(userId: Long): Int = users.indexOfFirst { it.id == userId }
+    })
 
     fun addListener(listener: UsersListener) {
         listeners.add(listener)
-        listener.invoke(users)
+        if (loaded) {
+            listener.invoke(users)
+        }
     }
 
     fun removeListener(listener: UsersListener) {
@@ -66,6 +84,7 @@ class UsersService {
     }
 
     private fun notifyChanges() {
+        if (!loaded) return
         listeners.forEach { it.invoke(users) }
     }
 

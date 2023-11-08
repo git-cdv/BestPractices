@@ -1,4 +1,4 @@
-package com.chkan.bestpractices.best_rv.data
+package com.chkan.bestpractices.best_rv.data.models
 
 data class User(
     val id: Long,
