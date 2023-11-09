@@ -1,4 +1,4 @@
-package com.chkan.bestpractices.jwt_auth.data
+package com.chkan.bestpractices.jwt_auth.data.auth
 
 import com.chkan.bestpractices.jwt_auth.data.utils.AuthResult
 

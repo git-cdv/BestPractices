@@ -1,9 +1,10 @@
-package com.chkan.bestpractices.jwt_auth.data
+package com.chkan.bestpractices.jwt_auth.data.auth
 
 import android.content.SharedPreferences
 import android.util.Log
-import com.chkan.bestpractices.jwt_auth.data.api.AuthApi
-import com.chkan.bestpractices.jwt_auth.data.requests.AuthRequest
+import com.chkan.bestpractices.jwt_auth.data.auth.JwtAuthRepository
+import com.chkan.bestpractices.jwt_auth.data.auth.api.AuthApi
+import com.chkan.bestpractices.jwt_auth.data.auth.requests.AuthRequest
 import com.chkan.bestpractices.jwt_auth.data.utils.AuthResult
 import retrofit2.HttpException
 import javax.inject.Inject

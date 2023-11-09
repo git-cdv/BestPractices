@@ -18,6 +18,7 @@ class CoroutinesFragment : BaseFragment<FragmentCoroutinesBinding>(FragmentCorou
 
     val context = Job() + Dispatchers.Default
     val scope = CoroutineScope(context)
+    private val mainScope = CoroutineScope(Dispatchers.Main)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -187,6 +188,31 @@ class CoroutinesFragment : BaseFragment<FragmentCoroutinesBinding>(FragmentCorou
             findNavController().navigate(R.id.action_coroutinesFragment_to_coroutinesScenariosFragment)
         }
 
+        binding.btnSync.setOnClickListener {
+            testSync()
+        }
+
+    }
+    private fun testSync() {
+        log("START")
+        var result  = ""
+        mainScope.launch {
+            log("parent coroutine, start")
+
+            val deferred = async() {
+                log("child coroutine, start")
+                TimeUnit.MILLISECONDS.sleep(1000)
+                log("child coroutine, end")
+                "async result"
+            }
+
+            log("parent coroutine, wait until child returns result")
+            result = deferred.await()
+            log("parent coroutine, child returns: $result")
+
+            log("parent coroutine, end")
+        }
+        log("FINISHED + result: $result")
     }
 
     private suspend fun getData(): String =

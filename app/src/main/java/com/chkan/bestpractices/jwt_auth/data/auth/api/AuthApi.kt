@@ -1,8 +1,8 @@
-package com.chkan.bestpractices.jwt_auth.data.api
+package com.chkan.bestpractices.jwt_auth.data.auth.api
 
-import com.chkan.bestpractices.jwt_auth.data.requests.AuthRequest
-import com.chkan.bestpractices.jwt_auth.data.responses.InfoResponse
-import com.chkan.bestpractices.jwt_auth.data.responses.TokenResponse
+import com.chkan.bestpractices.jwt_auth.data.auth.requests.AuthRequest
+import com.chkan.bestpractices.jwt_auth.data.auth.responses.InfoResponse
+import com.chkan.bestpractices.jwt_auth.data.auth.responses.TokenResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header

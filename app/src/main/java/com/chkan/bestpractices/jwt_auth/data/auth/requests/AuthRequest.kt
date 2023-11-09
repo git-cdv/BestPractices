@@ -1,4 +1,4 @@
-package com.chkan.bestpractices.jwt_auth.data.requests
+package com.chkan.bestpractices.jwt_auth.data.auth.requests
 
 import kotlinx.serialization.Serializable
 

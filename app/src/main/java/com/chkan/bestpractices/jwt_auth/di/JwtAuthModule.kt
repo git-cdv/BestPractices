@@ -3,11 +3,10 @@ package com.chkan.bestpractices.jwt_auth.di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import com.chkan.bestpractices.jwt_auth.data.api.AuthApi
-import com.chkan.bestpractices.jwt_auth.data.JwtAuthRepository
-import com.chkan.bestpractices.jwt_auth.data.JwtAuthRepositoryImpl
-import com.chkan.bestpractices.jwt_auth.data.api.RefreshTokenApi
-import com.chkan.bestpractices.jwt_auth.data.utils.AuthAuthenticator
+import com.chkan.bestpractices.jwt_auth.data.auth.api.AuthApi
+import com.chkan.bestpractices.jwt_auth.data.auth.JwtAuthRepository
+import com.chkan.bestpractices.jwt_auth.data.auth.JwtAuthRepositoryImpl
+import com.chkan.bestpractices.jwt_auth.data.refresh_token.TokenAuthenticator
 import com.chkan.bestpractices.jwt_auth.data.utils.AuthInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
@@ -38,7 +37,7 @@ object JwtAuthModule {
     @Named("Jwt")
     fun provideOkHttpClient(
         authInterceptor: AuthInterceptor,
-        authAuthenticator: AuthAuthenticator,
+        authAuthenticator: TokenAuthenticator,
     ): OkHttpClient {
 
         return OkHttpClient.Builder()
@@ -52,10 +51,7 @@ object JwtAuthModule {
     fun provideAuthInterceptor(prefs: SharedPreferences): AuthInterceptor =
         AuthInterceptor(prefs)
 
-    @Singleton
-    @Provides
-    fun provideAuthAuthenticator(api: RefreshTokenApi, prefs: SharedPreferences): AuthAuthenticator =
-        AuthAuthenticator(api,prefs)
+
 
     @Provides
     @Singleton
@@ -64,16 +60,6 @@ object JwtAuthModule {
             .baseUrl("http://10.0.2.2:8080/") //http://10.0.2.2:8080/  for emulator
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .client(okHttpClient)
-            .build()
-            .create()
-    }
-
-    @Provides
-    @Singleton
-    fun provideRefreshTokenApi(): RefreshTokenApi {
-        return Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080/") //http://10.0.2.2:8080/  for emulator
-            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .build()
             .create()
     }
