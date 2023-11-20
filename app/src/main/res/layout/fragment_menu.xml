@@ -138,11 +138,18 @@
         android:text="BEST RECYCLERVIEW + DIFFUTILS"
         android:layout_marginHorizontal="8dp" />
 
-        <com.google.android.material.button.MaterialButton
+    <com.google.android.material.button.MaterialButton
             android:id="@+id/btnJwtAuth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jwt Auth"
+            android:layout_marginHorizontal="8dp" />
+
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnWebsockets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Websockets"
             android:layout_marginHorizontal="8dp" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

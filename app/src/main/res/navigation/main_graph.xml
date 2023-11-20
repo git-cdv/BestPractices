@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_menuFragment_to_jwtAuthFragment"
             app:destination="@id/jwtAuthFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_webSocketsFragment"
+            app:destination="@id/websocketsFragment" />
     </fragment>
     <fragment
         android:id="@+id/coroutinesFragment"
@@ -185,4 +188,8 @@
         android:id="@+id/authResultFragment"
         android:name="com.chkan.bestpractices.jwt_auth.AuthResultFragment"
         android:label="AuthResultFragment" />
+    <fragment
+        android:id="@+id/websocketsFragment"
+        android:name="com.chkan.bestpractices.websockets.WebsocketsFragment"
+        android:label="WebsocketsFragment" />
 </navigation>

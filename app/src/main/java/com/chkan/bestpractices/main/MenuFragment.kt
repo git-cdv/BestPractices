@@ -74,6 +74,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnJwtAuth.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_jwtAuthFragment)
             }
+            btnWebsockets.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_webSocketsFragment)
+            }
         }
     }
 
