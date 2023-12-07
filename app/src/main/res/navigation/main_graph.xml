@@ -136,7 +136,11 @@
         android:id="@+id/customViewFragment"
         android:name="com.chkan.bestpractices.custom_view.CustomViewFragment"
         android:label="fragment_custom_view"
-        tools:layout="@layout/fragment_custom_view" />
+        tools:layout="@layout/fragment_custom_view" >
+        <action
+            android:id="@+id/action_customViewFragment_to_avatarCustomFragment"
+            app:destination="@id/avatarCustomFragment" />
+    </fragment>
     <fragment
         android:id="@+id/alarmFragment"
         android:name="com.chkan.bestpractices.alarm_manager.AlarmFragment"
@@ -192,4 +196,8 @@
         android:id="@+id/websocketsFragment"
         android:name="com.chkan.bestpractices.websockets.WebsocketsFragment"
         android:label="WebsocketsFragment" />
+    <fragment
+        android:id="@+id/avatarCustomFragment"
+        android:name="com.chkan.bestpractices.custom_view.AvatarCustomFragment"
+        android:label="AvatarCustomFragment" />
 </navigation>

@@ -52,6 +52,13 @@
             android:id="@+id/flag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Custom Avatar with Arc" />
     </LinearLayout>
 
 </ScrollView>

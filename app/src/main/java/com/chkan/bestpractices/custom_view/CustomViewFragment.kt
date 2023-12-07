@@ -4,8 +4,10 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.navigation.fragment.findNavController
 import com.chkan.bestpractices.R
 import com.chkan.bestpractices.core.BaseFragment
+import com.chkan.bestpractices.core.extensions.onClick
 import com.chkan.bestpractices.databinding.FragmentCustomViewBinding
 import java.time.LocalDate
 
@@ -48,5 +50,6 @@ class CustomViewFragment : BaseFragment<FragmentCustomViewBinding>(FragmentCusto
                 )
             )
         )
+        binding.btnAvatar.onClick { findNavController().navigate(R.id.action_customViewFragment_to_avatarCustomFragment) }
     }
 }
