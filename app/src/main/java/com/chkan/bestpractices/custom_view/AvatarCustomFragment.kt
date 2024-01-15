@@ -9,15 +9,15 @@ import com.chkan.bestpractices.databinding.FragmentAvatarCustomBinding
 
 class AvatarCustomFragment : BaseFragment<FragmentAvatarCustomBinding>(FragmentAvatarCustomBinding::inflate) {
 
-    var text = ""
+    var text = "Founder"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSetter.onClick {
             binding.labelAvatar.visibility = View.VISIBLE
-            text += "0"
-            binding.labelAvatar.setTextAndColor(text, Color.RED)
+            //text += "0"
+            binding.labelAvatar.setTextAndColor(text, Color.BLUE)
         }
     }
 

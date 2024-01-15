@@ -125,6 +125,11 @@ dependencies {
     //data for testing
     implementation 'com.github.javafaker:javafaker:1.0.2'
 
+    //ExoPlayer for livestream with HLS format
+    implementation "androidx.media3:media3-exoplayer:1.1.0"
+    implementation "androidx.media3:media3-ui:1.1.0"
+    implementation "androidx.media3:media3-exoplayer-hls:1.1.0"
+
     //tests
     testImplementation "org.jetbrains.kotlin:kotlin-test:1.5.21"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"

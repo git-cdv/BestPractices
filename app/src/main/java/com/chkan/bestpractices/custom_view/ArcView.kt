@@ -7,6 +7,7 @@ import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.Shader
+import android.graphics.Typeface
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.View
@@ -37,8 +38,9 @@ class ArcView @JvmOverloads constructor(
     private val paintText = TextPaint(Paint.ANTI_ALIAS_FLAG).apply { //сглаживает кривые при рисовании
         color = Color.WHITE
         style = Paint.Style.FILL_AND_STROKE
-        letterSpacing = 0.1f
+        letterSpacing = 0.2f
         textSize = 25f
+        typeface = Typeface.DEFAULT_BOLD
     }
 
     fun setTextAndColor(text: String, @ColorInt colorArc: Int){
@@ -61,8 +63,9 @@ class ArcView @JvmOverloads constructor(
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         paintArc.apply {
+            val colors = intArrayOf(colorResult,colorResult,Color.TRANSPARENT)
             color = colorResult
-            shader = LinearGradient(0f,fullSize, halfSize,halfSize, colorResult, Color.TRANSPARENT, Shader.TileMode.CLAMP)
+            shader = LinearGradient(0f,fullSize, halfSize,halfSize, colors,null, Shader.TileMode.CLAMP)
         }
         pathCircleInCenter.addCircle(halfSize,halfSize,fullSize/3,Path.Direction.CW)
         pathArc.apply {

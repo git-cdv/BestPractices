@@ -77,6 +77,9 @@ class MenuFragment : BaseFragment<FragmentMenuBinding>(FragmentMenuBinding::infl
             btnWebsockets.setOnClickListener {
                 findNavController().navigate(R.id.action_menuFragment_to_webSocketsFragment)
             }
+            btnStream.setOnClickListener {
+                findNavController().navigate(R.id.action_menuFragment_to_streamFragment)
+            }
         }
     }
 
